@@ -1,6 +1,17 @@
+import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import Header from "../Header/Header";
+import Admin from "../Admin/Admin";
+import Checkout from "../Checkout/Checkout";
+import Form from "../Form/Form";
+import List from "../List/List";
+
+
+
+
+
 
 function App() {
 
@@ -11,16 +22,8 @@ function App() {
 
         {/* home */}
         <Route path = "/" exact>
-          
-          {/* all be put into header */}
-        <header className='App-header'>
-         <h1 className='App-title'>Prime Pizza</h1>
-      </header>
-       <img src='images/pizza_photo.png' />
-       <p>Pizza is great.</p>
-       {/* all be put into header */}
-
         <Header/>
+        <img src='images/pizza_photo.png' />
         {/* link to menu */}
         </Route>
 
@@ -62,7 +65,7 @@ function App() {
 
       {/* list */}
         <li>
-          <NavLink to="/list">Menu</NavLink>
+          <NavLink to="/list">List</NavLink>
         </li>
 
       {/* form */}
@@ -75,7 +78,7 @@ function App() {
           <NavLink to="/checkout">Checkout</NavLink>
         </li>
 
-      {/* admin */}
+      {/* admin for testing, before deploying, no link boy!*/}
         <li>
           <NavLink to="/admin">Admin</NavLink>
         </li>
