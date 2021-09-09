@@ -38,10 +38,17 @@ const customerReducer = (state = defaultCustomerState, action) => {
 
 
 
-// checkout reducer
+// checkout reducer {id: '', name: '', description: '', image_path: '', price: '',  quantity: 1}
 const checkoutReducer = (state = [], action) => {
     if (action.type === 'ADD_TO_CART') {
         return [...state, {...action.payload, quantity:1 }];
+    }
+    else if (action.type === 'REMOVE_FROM_CART') {
+        let newState = [...state];        
+        // take out the object with the id that comes in on the payload
+        newState.filter(id)
+
+        return newState;
     }
     else if (action.type === 'CLEAR_CART'){
         return []
