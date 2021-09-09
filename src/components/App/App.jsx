@@ -1,5 +1,6 @@
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import './App.css';
 import Header from "../Header/Header";
@@ -9,12 +10,31 @@ import Form from "../Form/Form";
 import List from "../List/List";
 
 
-
-
-
-
 function App() {
+  const dispatch = useDispatch();
 
+    useEffect(() => {
+      console.log('in useEffect');
+      refreshPizzas();
+    }, []);
+
+
+ function refreshPizzas() {
+   axios({
+     method: 'GET',
+     url: '/api/pizza'
+   }).then(response => {
+     console.log(response.data);
+     dispatch({
+       type: `SET_PIZZAS`,
+       payload: response.data
+     });
+   }).catch(error => {
+     console.log('error on GET', error);
+   });
+  }
+ 
+  
   return (
     <Router>
       <div className="App">
@@ -31,7 +51,7 @@ function App() {
         <Route path = "/list" >
         <Header/>
         {/* header contains total */}
-        <List />
+        <List/>
         </Route>
 
 
@@ -39,7 +59,7 @@ function App() {
         <Route path ="/form">
         <Header/>
         {/* header contains total */}
-        <Form />
+        <Form refreshPizzas={refreshPizzas}/>
         </Route>
 
         {/* checkout */}

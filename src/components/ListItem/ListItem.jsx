@@ -22,14 +22,13 @@ function ListItem({ product }) {
       payload: product,
     });
   };
-
   return (
     <>
       <div className="pizzaDaddy">
         <div className="individualMenuItem">
           {/* picture */}
           <div>
-            <img src="{product.image_path}"></img>
+            <img src={product.image_path}/>
           </div>
 
           {/* menu item title */}

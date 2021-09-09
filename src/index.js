@@ -12,8 +12,8 @@ import { logger } from 'redux-logger';
 // pizza reducer
 
 const pizzaReducer = (state = [], action) => {
-    if (action.type === 'ADD_NEW_PIZZA') {
-        return [...state, action.payload];
+    if (action.type === 'SET_PIZZAS') {
+        return action.payload;
     }
     return state;
 };
@@ -31,7 +31,7 @@ customer_name: "",
 
 const customerReducer = (state = defaultCustomerState, action) => {
     if (action.type === 'ADD_NEW_CUSTOMER') {
-        return [...state, action.payload];
+        return action.payload;
     }
     return state;
 };
@@ -41,7 +41,7 @@ const customerReducer = (state = defaultCustomerState, action) => {
 // checkout reducer
 const checkoutReducer = (state = [], action) => {
     if (action.type === 'ADD_TO_CART') {
-        return [...state, action.payload];
+        return [...state, {...action.payload, quantity:1 }];
     }
     else if (action.type === 'CLEAR_CART'){
         return []
