@@ -4,7 +4,7 @@ import { useState } from "react-redux";
 // Displays a single Product with price on the DOM
 function ListItem({ product }) {
   // Manupilating the toggle
-  const [toggle, setToggle] = useState(true);
+//   const [toggle, setToggle] = useState(true);
   const dispatch = useDispatch();
   //   const addProductToCart = () => {
   //     console.log(product);
@@ -25,7 +25,6 @@ function ListItem({ product }) {
 
   return (
     <>
-      <h2>Step 1: Pick Your Pizza</h2>
       <div className="pizzaDaddy">
         <div className="individualMenuItem">
           {/* picture */}
