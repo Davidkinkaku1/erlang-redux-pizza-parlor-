@@ -58,8 +58,6 @@ function ListItem({ product }) {
             <p className="price">{product.price}</p>
           </div>
         </div>     
-      <Button variant="outline-success" onClick={addItem}>Add</Button>{' '}
-      <Button variant="outline-danger" onClick={removeItem}>Remove</Button>{' '}
           {/* toggle for add and remove on the individual item div */}
           {/* {<div className="menuItem" onClick={ () => setToggle(!toggle) }>
                 {toggle ? <div className="menuDisplay"><p className="singleAddItem" onClick={()=>addItem()}>Add</p></div> :
@@ -68,7 +66,7 @@ function ListItem({ product }) {
         {/* buttons for adding and removing pizzas */}
         <div className="btns">
          
-          {isPizzaThere ? <button onClick={removeItem}>Remove</button> : <button onClick={addItem}>Add</button> }
+          {isPizzaThere ? <Button variant="outline-danger" onClick={removeItem}>Remove</Button> : <Button variant="outline-success" onClick={addItem}>Add</Button> }
         </div>
       </div>
     </>
