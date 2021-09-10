@@ -8,7 +8,7 @@ import Admin from "../Admin/Admin";
 import Checkout from "../Checkout/Checkout";
 import Form from "../Form/Form";
 import List from "../List/List";
-
+import AdminHeader from "../AdminHeader/AdminHeader";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,13 +44,11 @@ function App() {
         <Route path = "/" exact>
         <Header/>
         <img src='images/pizza_photo.png' />
-        {/* link to menu */}
         </Route>
 
         {/* list / menu */}
         <Route path = "/list" >
         <Header/>
-        {/* header contains total */}
         <List/>
         </Route>
 
@@ -58,7 +56,6 @@ function App() {
         {/* form */}
         <Route path ="/form">
         <Header/>
-        {/* header contains total */}
         <Form refreshPizzas={refreshPizzas}/>
         </Route>
 
@@ -70,7 +67,6 @@ function App() {
 
         {/* admin */}
         <Route path ="/admin">
-        {/* <AdminHeader/> or something else for the header */}
         <Admin />
 
         </Route>

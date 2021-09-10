@@ -21,12 +21,12 @@ const pizzaReducer = (state = [], action) => {
 // customer reducer
 
 let defaultCustomerState = {
-customer_name: "",
-  street_address: "",
-  city: "",
-  zip: "",
-  total: "",
-  type: "",
+    customer_name: "",
+    street_address: "",
+    city: "",
+    zip: "",
+    total: "",
+    type: "",
 }
 
 const customerReducer = (state = defaultCustomerState, action) => {
@@ -41,16 +41,16 @@ const customerReducer = (state = defaultCustomerState, action) => {
 // checkout reducer {id: '', name: '', description: '', image_path: '', price: '',  quantity: 1}
 const checkoutReducer = (state = [], action) => {
     if (action.type === 'ADD_TO_CART') {
-        return [...state, {...action.payload, quantity:1 }];
+        return [...state, { ...action.payload, quantity: 1 }];
     }
-    else if (action.type === 'REMOVE_FROM_CART') {
-        let newState = [...state];        
-        // take out the object with the id that comes in on the payload
-        newState.filter(id)
+    // else if (action.type === 'REMOVE_FROM_CART') {
+    //     let newState = [...state];        
+    //     // take out the object with the id that comes in on the payload
+    //     newState.filter(id)
 
-        return newState;
-    }
-    else if (action.type === 'CLEAR_CART'){
+    //     return newState;
+    // }
+    else if (action.type === 'CLEAR_CART') {
         return []
     }
     return state;
@@ -65,7 +65,7 @@ const storeInstance = createStore(
         customerReducer,
         checkoutReducer
     }),
-    applyMiddleware(logger)   
+    applyMiddleware(logger)
 );
 
 // our entire application
