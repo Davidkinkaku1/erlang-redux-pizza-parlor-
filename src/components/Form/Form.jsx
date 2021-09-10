@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 function Forms() {
   const dispatch = useDispatch();
   const history = useHistory();
+  //creates place to input customer information
   const [inputCustomer, setInputCustomer] = useState({customer_name:'', street_address:'', city:'', zip:'', type:'pickup'});
 
   const onSubmit = (event) => {
@@ -46,7 +47,7 @@ function Forms() {
         <Button variant="outline-success" type='submit' value='Submit'>Submit</Button>
         </Form.Group>
       </form>
-      <Button variant="outline-success" onClick={()=> handleNext()}>Next</Button>
+      <Button variant="outline-success" onClick={()=> handleNext()}>Next</Button>    
       </>
     );
   }

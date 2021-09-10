@@ -13,13 +13,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const dispatch = useDispatch();
 
+    //grabs the refreshPizzas get request and updates Pizzas
     useEffect(() => {
       console.log('in useEffect');
       refreshPizzas();
     }, []);
 
-
- function refreshPizzas() {
+  //GET request to refresh the pizza list
+  function refreshPizzas() {
    axios({
      method: 'GET',
      url: '/api/pizza'
@@ -34,24 +35,6 @@ function App() {
    });
   }
  
-  // ORDERS
-  // let orders =() => {
-  //   axios({
-  //     method: 'GET',
-  //     url: '/api/order'
-  //   }).then(response => {
-  //    console.log(response.data);
-  //    dispatch({
-  //     type: `SET_ORDERS`,
-  //     payload: response.data
-  //   });
-  //   }).catch(error => {
-  //     console.log('error on GET', error);
-  //   });
-  //  }
-
-
-
   
   return (
     <Router>
@@ -61,32 +44,32 @@ function App() {
       <div className="App">
         <Switch>
 
-        {/* home */}
+        {/*home*/}
         <Route path = "/" exact>
         <Header/>
         <img src='images/pizza_photo.png' />
         </Route>
 
-        {/* list / menu */}
+        {/*list / menu*/}
         <Route path = "/list" >
         <Header/>
         <List/>
         </Route>
 
 
-        {/* form */}
+        {/*form*/}
         <Route path ="/form">
         <Header/>
         <Form refreshPizzas={refreshPizzas}/>
         </Route>
 
-        {/* checkout */}
+        {/*checkout*/}
         <Route path ="/checkout">
         <Header/>
         <Checkout />
         </Route>
 
-        {/* admin */}
+        {/*admin*/}
         <Route path ="/admin">
         <Admin />
 
@@ -94,10 +77,6 @@ function App() {
         </Switch>
 
       </div>
-
-     
-
-    
 
       </Router>
   );

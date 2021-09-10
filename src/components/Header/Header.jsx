@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 
+//template header used for most of our pages also 
+//contains a calculator for the running total in the cart.
 function Header() {
   const itemList = useSelector((store) => store.checkoutReducer);
   console.log(itemList);
 
+  //calculates a running total for cart items
   function calcTotal() {
     let total = 0;
     for (let item of itemList) {
