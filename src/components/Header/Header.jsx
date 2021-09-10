@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 
 function Header() {
   const itemList = useSelector((store) => store.checkoutReducer);
@@ -16,11 +17,16 @@ function Header() {
   return (
     <>
       <header className="App-header">
+         {/* list */}
+        
+
+     
         <h1 className="App-title">DNH Pizza</h1>
+        <NavLink className="navlink" to="/list">Menu</NavLink>
         <h4>Total: ${calcTotal()} </h4>
       </header>
 
-      <p>Pizza IS great.</p>
+      <p>Welcome to DNH pizza!</p>
     </>
   );
 }

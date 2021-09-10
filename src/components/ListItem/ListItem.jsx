@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react-redux";
+import Button from 'react-bootstrap/Button';
+
 
 // Displays a single Product with price on the DOM
 function ListItem({ product }) {
@@ -38,20 +40,21 @@ function ListItem({ product }) {
 
           {/* description */}
           <div>
-            <p>{product.description}</p>
+            <p className="description">{product.description}</p>
           </div>
 
           {/* price */}
           <div>
-            <p>{product.price}</p>
+            <p className="price">{product.price}</p>
           </div>
         </div>
 
         
-              <div className="btns">
-                    <button onClick={addItem}>Add</button>
-                    <button onClick={removeItem}>Remove</button>
-             </div> 
+              
+      <Button variant="outline-success" onClick={addItem}>Add</Button>{' '}
+      <Button variant="outline-danger" onClick={removeItem}>Remove</Button>{' '}
+                    
+              
 
           {/* toggle for add and remove on the individual item div */}
           {/* {<div className="menuItem" onClick={ () => setToggle(!toggle) }>

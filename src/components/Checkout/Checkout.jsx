@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
 
 function Checkout() {
   const checkoutData = useSelector((store) => store.checkoutReducer);
@@ -74,7 +75,7 @@ function Checkout() {
             </table>
           </div>
         }
-        <button onClick={handleCheckout}>Checkout</button>
+        <Button variant="outline-success" onClick={handleCheckout}>Checkout</Button>
       </div>
     </>
   );

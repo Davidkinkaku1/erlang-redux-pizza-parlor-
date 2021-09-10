@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
-function Form() {
+function Forms() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [inputCustomer, setInputCustomer] = useState({customer_name:'', street_address:'', city:'', zip:'', type:'pickup'});
@@ -31,20 +33,22 @@ function Form() {
  
   return (
       <>
-         <form onSubmit= {onSubmit}>
-      <input onChange={(event)=> setInputCustomer({...inputCustomer, customer_name: event.target.value})} type='text' placeholder='Name' value ={inputCustomer.customer_name}/>
-      <input onChange={(event) => setInputCustomer({...inputCustomer, street_address: event.target.value})} type='text' placeholder='Address' value ={inputCustomer.street_address}/>
-      <input onChange={(event)=> setInputCustomer({...inputCustomer, city: event.target.value})} type='text' placeholder='City' value ={inputCustomer.city}/>
-      <input onChange={(event)=> setInputCustomer({...inputCustomer, zip: event.target.value})} type='number' placeholder='Zip Code' value ={inputCustomer.zip}/>
+      <form onSubmit={onSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, customer_name: event.target.value})} type='text' placeholder='Name' value ={inputCustomer.customer_name}/>
+      <Form.Control onChange={(event) => setInputCustomer({ ...inputCustomer, street_address: event.target.value })} type='text' placeholder='Address' value={inputCustomer.street_address} />
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, city: event.target.value})} type='text' placeholder='City' value ={inputCustomer.city}/>
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, zip: event.target.value})} type='number' placeholder='Zip Code' value ={inputCustomer.zip}/>
       <select value={inputCustomer.type} onChange={(event)=> setInputCustomer({...inputCustomer, type:event.target.value})}>
             <option value={"pickup"}>Pickup</option>
             <option value={"delivery"}>Delivery</option>
             </select>
-      <input type='submit' value='Submit' />
+        <Button variant="outline-success" type='submit' value='Submit'>Submit</Button>
+        </Form.Group>
       </form>
-      <button onClick={()=> handleNext()}>Next</button>
+      <Button variant="outline-success" onClick={()=> handleNext()}>Next</Button>
       </>
     );
   }
   
-  export default Form;
+  export default Forms;
