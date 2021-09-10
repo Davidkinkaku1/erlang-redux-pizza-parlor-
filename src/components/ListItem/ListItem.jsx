@@ -1,14 +1,11 @@
 import { useDispatch } from "react-redux";
-import { useState } from "react-redux";
 
 // Displays a single Product with price on the DOM
 function ListItem({ product }) {
-  // Manupilating the toggle
-//   const [toggle, setToggle] = useState(true);
+  // calling the dispatch storage with redux
   const dispatch = useDispatch();
-  //   const addProductToCart = () => {
-  //     console.log(product);
 
+  // adding item to the cart through a reducer
   const addItem = () => {
     dispatch({
       type: "ADD_TO_CART",
@@ -16,19 +13,21 @@ function ListItem({ product }) {
     });
   };
 
+  // removing item from the cart through a reducer
   const removeItem = () => {
     dispatch({
       type: "REMOVE_FROM_CART",
       payload: product,
     });
   };
+  // listing all the pizza down below.
   return (
     <>
       <div className="pizzaDaddy">
         <div className="individualMenuItem">
           {/* picture */}
           <div>
-            <img src={product.image_path}/>
+            <img src={product.image_path} />
           </div>
 
           {/* menu item title */}
@@ -47,17 +46,11 @@ function ListItem({ product }) {
           </div>
         </div>
 
-        
-              <div className="btns">
-                    <button onClick={addItem}>Add</button>
-                    <button onClick={removeItem}>Remove</button>
-             </div> 
-
-          {/* toggle for add and remove on the individual item div */}
-          {/* {<div className="menuItem" onClick={ () => setToggle(!toggle) }>
-                {toggle ? <div className="menuDisplay"><p className="singleAddItem" onClick={()=>addItem()}>Add</p></div> :
-                <div><p className="singleRemoveItem" onClick={() =>removeItem()}>Remove</p></div>}</div>} */}
-        
+        {/* buttons for adding and removing pizzas */}
+        <div className="btns">
+          <button onClick={addItem}>Add</button>
+          <button onClick={removeItem}>Remove</button>
+        </div>
       </div>
     </>
   );

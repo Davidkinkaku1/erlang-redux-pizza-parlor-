@@ -1,5 +1,6 @@
 import './AdminHeader.css';
 
+//This is a template for the specific header for the admin page.
 function AdminHeader() {
 
   return (

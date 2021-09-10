@@ -4,9 +4,10 @@ import ListItem from '../ListItem/ListItem';
 import Header from '../Header/Header';
 import {useHistory} from 'react-router-dom';
 
-
+//This is to display everything with regards to the pizza items that the customer can pick from.
 function List(props) {
   const history = useHistory();
+  //Grabs the pizza information
   const productData = useSelector(store => store.pizzaReducer);
   
   const handleNext = () => {
@@ -19,12 +20,12 @@ function List(props) {
 <>
   <h2>Step 1: Pick Your Pizza</h2>
       <div>
-        <ul>
+        <ul>{/*Loops over the data and then displays each ListItem in its own list item*/}
           {productData.map((product, i) => {
             return <ListItem key={i} product={product}/>;
           })}
         </ul>
-        <button onClick={() => handleNext()}>Next</button>
+        <button onClick={() => handleNext()}>Next</button>{/*Button to confirm pizza selection and move to the next page*/}
       </div>
     </>
     )
