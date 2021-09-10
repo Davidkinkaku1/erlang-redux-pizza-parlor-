@@ -18,6 +18,15 @@ const pizzaReducer = (state = [], action) => {
     return state;
 };
 
+// ORDER REDUCER
+const orderReducer = (state = [], action) => {
+    if (action.type === 'SET_ORDERS') {
+        console.log("here is the payload for orderReducer", action.payload)
+        return action.payload;
+    }
+    return state;
+};
+
 // customer reducer
 
 let defaultCustomerState = {
@@ -63,7 +72,8 @@ const storeInstance = createStore(
     combineReducers({
         pizzaReducer,
         customerReducer,
-        checkoutReducer
+        checkoutReducer,
+        orderReducer
     }),
     applyMiddleware(logger)
 );

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 function Checkout() {
   const checkoutData = useSelector((store) => store.checkoutReducer);
@@ -13,10 +14,36 @@ function Checkout() {
   const history = useHistory();
 
   const handleCheckout = () => {
-    dispatch({
-      type: "CLEAR_CART",
-    });
-    history.push("/");
+    let tempPizzaList = [];
+    let total = 0;
+    for (let item of checkoutData) {
+      total += Number(item.price);
+      let temObj = { id: item.id, quantity: item.quantity };
+      tempPizzaList.push(temObj);
+    }
+
+    let orderObj = {
+      customer_name: customerData.customer_name,
+      street_address: customerData.street_address,
+      city: customerData.city,
+      zip: customerData.zip,
+      total: total,
+      type: customerData.type,
+      pizzas: tempPizzaList, // replacing the pizza array of object that was there.
+    };
+    console.log('inside this object', orderObj);
+    axios
+      .post("/api/order", orderObj)
+      .then(response => {
+        dispatch({
+          type: "CLEAR_CART",
+        });
+        history.push("/");
+      })
+      .catch((err) => {
+        alert("Error posting pizza to DB", err);
+        console.log("Error posting pizza to DB", err);
+      });
   };
 
   return (
