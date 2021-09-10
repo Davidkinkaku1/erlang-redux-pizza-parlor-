@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 
 //template header used for most of our pages also 
 //contains a calculator for the running total in the cart.
@@ -19,11 +20,16 @@ function Header() {
   return (
     <>
       <header className="App-header">
+         {/* list */}
+        
+
+     
         <h1 className="App-title">DNH Pizza</h1>
-        <h4>Total: ${calcTotal()} </h4>{/*Calculator for cart total*/}
+        <NavLink className="navlink" to="/list">Menu</NavLink>
+        <h4>Total: ${calcTotal()} </h4>
       </header>
 
-      <p>Pizza IS great.</p>
+      <p>Welcome to DNH pizza!</p>
     </>
   );
 }

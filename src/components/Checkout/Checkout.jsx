@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Button from 'react-bootstrap/Button';
 
 //checkout grabs the stored data from the customerdata and checkoutdata groups and
 //displays the order as a whole.
@@ -83,7 +84,10 @@ function Checkout() {
             </table>
           </div>
         }
+
+        <Button variant="outline-success" onClick={handleCheckout}>Checkout</Button>
         <button onClick={handleCheckout}>Checkout</button>{/*Checkout button to finilize purchase*/}
+
       </div>
     </>
   );

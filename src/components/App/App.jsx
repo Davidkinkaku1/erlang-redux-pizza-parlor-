@@ -8,7 +8,7 @@ import Admin from "../Admin/Admin";
 import Checkout from "../Checkout/Checkout";
 import Form from "../Form/Form";
 import List from "../List/List";
-import AdminHeader from "../AdminHeader/AdminHeader";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +38,9 @@ function App() {
   
   return (
     <Router>
+
+      
+      
       <div className="App">
         <Switch>
 
@@ -74,31 +77,6 @@ function App() {
         </Switch>
 
       </div>
-
-      {/*home*/}
-      <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-
-      {/*list*/}
-        <li>
-          <NavLink to="/list">List</NavLink>
-        </li>
-
-      {/*form*/}
-        <li>
-          <NavLink to="/form">Form</NavLink>
-        </li>
-
-      {/*checkout*/}
-        <li>
-          <NavLink to="/checkout">Checkout</NavLink>
-        </li>
-
-      {/*admin for testing, before deploying remove the link!*/}
-        <li>
-          <NavLink to="/admin">Admin</NavLink>
-        </li>
 
       </Router>
   );
