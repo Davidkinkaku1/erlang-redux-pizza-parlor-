@@ -13,13 +13,14 @@ import AdminHeader from "../AdminHeader/AdminHeader";
 function App() {
   const dispatch = useDispatch();
 
+    //grabs the refreshPizzas get request and updates Pizzas
     useEffect(() => {
       console.log('in useEffect');
       refreshPizzas();
     }, []);
 
-
- function refreshPizzas() {
+  //GET request to refresh the pizza list
+  function refreshPizzas() {
    axios({
      method: 'GET',
      url: '/api/pizza'
@@ -34,56 +35,38 @@ function App() {
    });
   }
  
-  // ORDERS
-  // let orders =() => {
-  //   axios({
-  //     method: 'GET',
-  //     url: '/api/order'
-  //   }).then(response => {
-  //    console.log(response.data);
-  //    dispatch({
-  //     type: `SET_ORDERS`,
-  //     payload: response.data
-  //   });
-  //   }).catch(error => {
-  //     console.log('error on GET', error);
-  //   });
-  //  }
-
-
-
   
   return (
     <Router>
       <div className="App">
         <Switch>
 
-        {/* home */}
+        {/*home*/}
         <Route path = "/" exact>
         <Header/>
         <img src='images/pizza_photo.png' />
         </Route>
 
-        {/* list / menu */}
+        {/*list / menu*/}
         <Route path = "/list" >
         <Header/>
         <List/>
         </Route>
 
 
-        {/* form */}
+        {/*form*/}
         <Route path ="/form">
         <Header/>
         <Form refreshPizzas={refreshPizzas}/>
         </Route>
 
-        {/* checkout */}
+        {/*checkout*/}
         <Route path ="/checkout">
         <Header/>
         <Checkout />
         </Route>
 
-        {/* admin */}
+        {/*admin*/}
         <Route path ="/admin">
         <Admin />
 
@@ -92,41 +75,32 @@ function App() {
 
       </div>
 
-      {/* home */}
+      {/*home*/}
       <li>
           <NavLink to="/">Home</NavLink>
         </li>
 
-      {/* list */}
+      {/*list*/}
         <li>
           <NavLink to="/list">List</NavLink>
         </li>
 
-      {/* form */}
+      {/*form*/}
         <li>
           <NavLink to="/form">Form</NavLink>
         </li>
 
-      {/* checkout */}
+      {/*checkout*/}
         <li>
           <NavLink to="/checkout">Checkout</NavLink>
         </li>
 
-      {/* admin for testing, before deploying, no link boy!*/}
+      {/*admin for testing, before deploying remove the link!*/}
         <li>
           <NavLink to="/admin">Admin</NavLink>
         </li>
 
       </Router>
-    // <div className='App'>
-    //   <header className='App-header'>
-    //     <h1 className='App-title'>Prime Pizza</h1>
-    //   </header>
-  
-    //   <img src='images/pizza_photo.png' />
-    //   <p>Pizza is great.</p>
-  
-    // </div>
   );
 }
 
