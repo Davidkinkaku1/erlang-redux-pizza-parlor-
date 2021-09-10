@@ -34,6 +34,24 @@ function App() {
    });
   }
  
+  // ORDERS
+  // let orders =() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: '/api/order'
+  //   }).then(response => {
+  //    console.log(response.data);
+  //    dispatch({
+  //     type: `SET_ORDERS`,
+  //     payload: response.data
+  //   });
+  //   }).catch(error => {
+  //     console.log('error on GET', error);
+  //   });
+  //  }
+
+
+
   
   return (
     <Router>
