@@ -86,8 +86,6 @@ function Checkout() {
         }
 
         <Button variant="outline-success" onClick={handleCheckout}>Checkout</Button>
-        <button onClick={handleCheckout}>Checkout</button>{/*Checkout button to finilize purchase*/}
-
       </div>
     </>
   );

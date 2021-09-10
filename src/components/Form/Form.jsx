@@ -24,13 +24,14 @@ function Forms() {
     })
     // Clear the form
     // setInputC('');
-  }
-
-  const handleNext = () => {
-    //tell redux to clear cart 
-    console.log('in handle next');
     history.push('/checkout');
   }
+
+  // const handleNext = () => {
+  //   //tell redux to clear cart 
+  //   console.log('in handle next');
+    
+  // }
  
   return (
       <>
@@ -44,12 +45,11 @@ function Forms() {
             <option value={"pickup"}>Pickup</option>
             <option value={"delivery"}>Delivery</option>
             </select>
-        <Button variant="outline-success" type='submit' value='Submit'>Submit</Button>
+        <Button  variant="outline-success" type='submit' value='Submit'>Submit</Button>
         </Form.Group>
-      </form>
-      <Button variant="outline-success" onClick={()=> handleNext()}>Next</Button>    
+      </form>    
       </>
     );
   }
-  
+  // onClick={()=> handleNext()}
   export default Forms;

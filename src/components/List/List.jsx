@@ -21,8 +21,7 @@ function List(props) {
   <h2>Step 1: Pick Your Pizza</h2>
 
       <div className = 'listDiv'>
-        <ul>
-
+      </div>
       <div>
         <ul>{/*Loops over the data and then displays each ListItem in its own list item*/}
 
@@ -32,7 +31,7 @@ function List(props) {
         </ul>
 
         <Button variant="outline-warning" onClick={() => handleNext()}>Next</Button>{' '}
-        <button onClick={() => handleNext()}>Next</button>{/*Button to confirm pizza selection and move to the next page*/}
+        
 
       </div>
     </>
