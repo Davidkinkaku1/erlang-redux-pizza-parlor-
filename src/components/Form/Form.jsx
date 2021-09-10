@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
-function Form() {
+function Forms() {
   const dispatch = useDispatch();
   const history = useHistory();
   //creates place to input customer information
@@ -22,31 +24,32 @@ function Form() {
     })
     // Clear the form
     // setInputC('');
-  }
-
-  const handleNext = () => {
-    //tell redux to clear cart 
-    console.log('in handle next');
     history.push('/checkout');
   }
+
+  // const handleNext = () => {
+  //   //tell redux to clear cart 
+  //   console.log('in handle next');
+    
+  // }
  
   return (
       <>
-        <form onSubmit= {onSubmit}>
-          {/*Inputs for the form*/}
-          <input onChange={(event)=> setInputCustomer({...inputCustomer, customer_name: event.target.value})} type='text' placeholder='Name' value ={inputCustomer.customer_name}/>
-          <input onChange={(event) => setInputCustomer({...inputCustomer, street_address: event.target.value})} type='text' placeholder='Address' value ={inputCustomer.street_address}/>
-          <input onChange={(event)=> setInputCustomer({...inputCustomer, city: event.target.value})} type='text' placeholder='City' value ={inputCustomer.city}/>
-          <input onChange={(event)=> setInputCustomer({...inputCustomer, zip: event.target.value})} type='number' placeholder='Zip Code' value ={inputCustomer.zip}/>
-          <select value={inputCustomer.type} onChange={(event)=> setInputCustomer({...inputCustomer, type:event.target.value})}>
+      <form onSubmit={onSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, customer_name: event.target.value})} type='text' placeholder='Name' value ={inputCustomer.customer_name}/>
+      <Form.Control onChange={(event) => setInputCustomer({ ...inputCustomer, street_address: event.target.value })} type='text' placeholder='Address' value={inputCustomer.street_address} />
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, city: event.target.value})} type='text' placeholder='City' value ={inputCustomer.city}/>
+      <Form.Control onChange={(event)=> setInputCustomer({...inputCustomer, zip: event.target.value})} type='number' placeholder='Zip Code' value ={inputCustomer.zip}/>
+      <select value={inputCustomer.type} onChange={(event)=> setInputCustomer({...inputCustomer, type:event.target.value})}>
             <option value={"pickup"}>Pickup</option>
             <option value={"delivery"}>Delivery</option>
             </select>
-          <input type='submit' value='Submit' />
-        </form>
-        <button onClick={()=> handleNext()}>Next</button>
+        <Button  variant="outline-success" type='submit' value='Submit'>Submit</Button>
+        </Form.Group>
+      </form>    
       </>
     );
   }
-  
-  export default Form;
+  // onClick={()=> handleNext()}
+  export default Forms;

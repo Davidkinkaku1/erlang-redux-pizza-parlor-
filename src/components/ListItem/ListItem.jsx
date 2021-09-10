@@ -1,6 +1,8 @@
 
 import { useSelector, useDispatch } from "react-redux";
 
+import { useState } from "react-redux";
+import Button from 'react-bootstrap/Button';
 // Displays a single Product with price on the DOM
 function ListItem({ product }) {
   // calling the dispatch storage with redux
@@ -48,15 +50,21 @@ function ListItem({ product }) {
 
           {/* description */}
           <div>
-            <p>{product.description}</p>
+            <p className="description">{product.description}</p>
           </div>
 
           {/* price */}
           <div>
-            <p>{product.price}</p>
+            <p className="price">{product.price}</p>
           </div>
-        </div>
-
+        </div>     
+      <Button variant="outline-success" onClick={addItem}>Add</Button>{' '}
+      <Button variant="outline-danger" onClick={removeItem}>Remove</Button>{' '}
+          {/* toggle for add and remove on the individual item div */}
+          {/* {<div className="menuItem" onClick={ () => setToggle(!toggle) }>
+                {toggle ? <div className="menuDisplay"><p className="singleAddItem" onClick={()=>addItem()}>Add</p></div> :
+                <div><p className="singleRemoveItem" onClick={() =>removeItem()}>Remove</p></div>}</div>} */}
+        
         {/* buttons for adding and removing pizzas */}
         <div className="btns">
          
