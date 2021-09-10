@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
 
 // Displays a single Product with price on the DOM
 function ListItem({ product }) {
@@ -21,6 +22,16 @@ function ListItem({ product }) {
     });
   };
   // listing all the pizza down below.
+
+  const checkoutData = useSelector((store) => store.checkoutReducer);
+  console.log(checkoutData);
+
+
+/// working to check if the pizza is there 
+  const isPizzaThere = checkoutData.some(pizza => pizza.id === product.id);
+  console.log('is this food there? ', isPizzaThere);
+
+
   return (
     <>
       <div className="pizzaDaddy">
@@ -48,8 +59,8 @@ function ListItem({ product }) {
 
         {/* buttons for adding and removing pizzas */}
         <div className="btns">
-          <button onClick={addItem}>Add</button>
-          <button onClick={removeItem}>Remove</button>
+         
+          {isPizzaThere ? <button onClick={removeItem}>Remove</button> : <button onClick={addItem}>Add</button> }
         </div>
       </div>
     </>
