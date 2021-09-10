@@ -65,3 +65,9 @@ img {
 .navlink {
   float: left;
 }
+
+
+.checkoutList {
+  list-style: none;
+
+}

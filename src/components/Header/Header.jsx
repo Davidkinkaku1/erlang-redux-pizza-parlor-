@@ -24,7 +24,7 @@ function Header() {
         
 
      
-        <h1 className="App-title">DNH Pizza</h1>
+        <h1 className="App-title">Pizza Daddies</h1>
         <NavLink className="navlink" to="/list">Menu</NavLink>
         <h4>Total: ${calcTotal()} </h4>
       </header>

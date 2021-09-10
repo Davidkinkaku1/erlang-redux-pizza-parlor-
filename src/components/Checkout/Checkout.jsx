@@ -62,19 +62,20 @@ function Checkout() {
         <h2>Step 3: Checkout</h2>
 
         <p>{/*Displays customer personal information for them to doublecheck*/}
-          <li>
-            {customerData.customer_name}
-            {customerData.street_address}
-            {customerData.type}
-            {customerData.city}
-            {customerData.zip}
-          </li>
+          <ul className="checkoutList">
+            <li>{customerData.customer_name}</li>
+            <li>{customerData.street_address}</li>
+            <li>{customerData.type}</li>
+            <li>{customerData.city}, {customerData.zip}</li>
+            
+          </ul>
         </p>
 
         {
           <div>
             <table>
               <tbody>{/*The details of the order are displayed here, (Pizza type and price)*/}
+                <tr>Your order:</tr>
                 {checkoutData.map((checkouts, i) => (
                   <tr key={i}>
                     {checkouts.name}: ${checkouts.price}

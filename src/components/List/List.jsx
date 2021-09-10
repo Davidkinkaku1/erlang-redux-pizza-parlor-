@@ -18,7 +18,7 @@ function List(props) {
   
   return (
 <>
-  <h2>Step 1: Pick Your Pizza</h2>
+  <h2>Step 1: Pick Your Pizza, Daddy</h2>
 
       <div className = 'listDiv'>
       </div>
