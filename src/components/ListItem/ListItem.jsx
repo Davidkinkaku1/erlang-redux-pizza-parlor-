@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
 
 import { useState } from "react-redux";
 import Button from 'react-bootstrap/Button';
@@ -23,6 +24,16 @@ function ListItem({ product }) {
     });
   };
   // listing all the pizza down below.
+
+  const checkoutData = useSelector((store) => store.checkoutReducer);
+  console.log(checkoutData);
+
+
+/// working to check if the pizza is there 
+  const isPizzaThere = checkoutData.some(pizza => pizza.id === product.id);
+  console.log('is this food there? ', isPizzaThere);
+
+
   return (
     <>
       <div className="pizzaDaddy">
@@ -54,7 +65,11 @@ function ListItem({ product }) {
                 {toggle ? <div className="menuDisplay"><p className="singleAddItem" onClick={()=>addItem()}>Add</p></div> :
                 <div><p className="singleRemoveItem" onClick={() =>removeItem()}>Remove</p></div>}</div>} */}
         
-
+        {/* buttons for adding and removing pizzas */}
+        <div className="btns">
+         
+          {isPizzaThere ? <button onClick={removeItem}>Remove</button> : <button onClick={addItem}>Add</button> }
+        </div>
       </div>
     </>
   );

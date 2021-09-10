@@ -53,6 +53,17 @@ const checkoutReducer = (state = [], action) => {
     if (action.type === 'ADD_TO_CART') {
         return [...state, { ...action.payload, quantity: 1 }];
     }
+
+    else if (action.type === 'REMOVE_FROM_CART') {
+       
+        // take out the object with the id that comes in on the payload
+        return state.filter(pizza => pizza.id !== action.payload.id);
+    }
+
+
+
+
+
     else if (action.type === 'CLEAR_CART') {
         return []
     }
